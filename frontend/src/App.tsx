@@ -1,27 +1,107 @@
-import './App.css'
-import './index.css'
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-  return (<main className="app">
-    <section className="glass-panel">
-      <aside className="sidebar">
-        <h2 className="logo">BankChat</h2>
+  const [activeSection, setActiveSection] = useState("dashboard");
 
-        <nav className="menu">
-          <button className="menu-item active">Dashboard</button>
-          <button className="menu-item">Chats</button>
-          <button className="menu-item">Projects</button>
-          <button className="menu-item">Accounts</button>
-          <button className="menu-item">Settings</button>
-        </nav>
-      </aside>
-      <section className="content">
-        <h1>BankChat</h1>
-        <p>Добро пожаловать в банковскую платформу</p>
+  return (
+    <main className="app">
+      <section className="glass-panel">
+        <aside className="sidebar">
+          <h2 className="logo">BankChat</h2>
+
+          <nav className="menu">
+            <button
+              className={
+                activeSection === "profile" ? "menu-item active" : "menu-item"
+              }
+              onClick={() => setActiveSection("profile")}
+            >
+              Профиль
+            </button>
+            <button
+              className={
+                activeSection === "dashboard" ? "menu-item active" : "menu-item"
+              }
+              onClick={() => setActiveSection("dashboard")}
+            >
+              Дашборд
+            </button>
+            <button
+              className={
+                activeSection === "chats" ? "menu-item active" : "menu-item"
+              }
+              onClick={() => setActiveSection("chats")}
+            >
+              Чаты
+            </button>
+            <button
+              className={
+                activeSection === "projects" ? "menu-item active" : "menu-item"
+              }
+              onClick={() => setActiveSection("projects")}
+            >
+              Проекты
+            </button>
+            <button
+              className={
+                activeSection === "accounts" ? "menu-item active" : "menu-item"
+              }
+              onClick={() => setActiveSection("accounts")}
+            >
+              Аккаунты
+            </button>
+            <button
+              className={
+                activeSection === "settings" ? "menu-item active" : "menu-item"
+              }
+              onClick={() => setActiveSection("settings")}
+            >
+              Настройки
+            </button>
+          </nav>
+        </aside>
+
+        <section className="content">
+          {activeSection === "dashboard" && (
+            <div>
+              <h1>Дашборд</h1>
+              <p>Добро пожаловать в банковскую платформу</p>
+            </div>
+          )}
+          {activeSection === "chats" && (
+            <div>
+              <h1>Чаты</h1>
+              <p>Добро пожаловать в банковскую платформу</p>
+            </div>
+          )}
+          {activeSection === "projects" && (
+            <div>
+              <h1>Проекты</h1>
+              <p>Добро пожаловать в банковскую платформу</p>
+            </div>
+          )}
+          {activeSection === "accounts" && (
+            <div>
+              <h1>Аккаунты</h1>
+              <p>Добро пожаловать в банковскую платформу</p>
+            </div>
+          )}
+          {activeSection === "settings" && (
+            <div>
+              <h1>Настройки</h1>
+              <p>Добро пожаловать в банковскую платформу</p>
+            </div>
+          )}
+          {activeSection === "profile" && (
+            <div>
+              <h1>Профиль пользователя</h1>
+              <p>Данные пользователя</p>
+            </div>
+          )}
+        </section>
       </section>
-    </section>
-  </main>
-
-  )
+    </main>
+  );
 }
-export default App
+export default App;
