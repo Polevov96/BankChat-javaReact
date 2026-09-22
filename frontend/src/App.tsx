@@ -4,6 +4,37 @@ import { useState } from "react";
 function App() {
   const [activeSection, setActiveSection] = useState("dashboard");
 
+  const menuItems = [
+    {
+      id: "profile",
+      label: "Профиль",
+    },
+    {
+      id: "dashboard",
+      label: "Дашборд",
+    },
+    {
+      id: "chats",
+      label: "Чаты",
+    },
+    {
+      id: "projects",
+      label: "Проекты",
+    },
+    {
+      id: "accounts",
+      label: "Аккаунты",
+    },
+    {
+      id: "settings",
+      label: "Настройки",
+    },
+    {
+      id: "notifications",
+      label: "Уведомления",
+    },
+  ];
+
   return (
     <main className="app">
       <section className="glass-panel">
@@ -11,54 +42,17 @@ function App() {
           <h2 className="logo">BankChat</h2>
 
           <nav className="menu">
-            <button
-              className={
-                activeSection === "profile" ? "menu-item active" : "menu-item"
-              }
-              onClick={() => setActiveSection("profile")}
-            >
-              Профиль
-            </button>
-            <button
-              className={
-                activeSection === "dashboard" ? "menu-item active" : "menu-item"
-              }
-              onClick={() => setActiveSection("dashboard")}
-            >
-              Дашборд
-            </button>
-            <button
-              className={
-                activeSection === "chats" ? "menu-item active" : "menu-item"
-              }
-              onClick={() => setActiveSection("chats")}
-            >
-              Чаты
-            </button>
-            <button
-              className={
-                activeSection === "projects" ? "menu-item active" : "menu-item"
-              }
-              onClick={() => setActiveSection("projects")}
-            >
-              Проекты
-            </button>
-            <button
-              className={
-                activeSection === "accounts" ? "menu-item active" : "menu-item"
-              }
-              onClick={() => setActiveSection("accounts")}
-            >
-              Аккаунты
-            </button>
-            <button
-              className={
-                activeSection === "settings" ? "menu-item active" : "menu-item"
-              }
-              onClick={() => setActiveSection("settings")}
-            >
-              Настройки
-            </button>
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                className={
+                  activeSection === item.id ? "menu-item active" : "menu-item"
+                }
+                onClick={() => setActiveSection(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
         </aside>
 
@@ -69,34 +63,45 @@ function App() {
               <p>Добро пожаловать в банковскую платформу</p>
             </div>
           )}
+
           {activeSection === "chats" && (
             <div>
               <h1>Чаты</h1>
               <p>Добро пожаловать в банковскую платформу</p>
             </div>
           )}
+
           {activeSection === "projects" && (
             <div>
               <h1>Проекты</h1>
               <p>Добро пожаловать в банковскую платформу</p>
             </div>
           )}
+
           {activeSection === "accounts" && (
             <div>
               <h1>Аккаунты</h1>
               <p>Добро пожаловать в банковскую платформу</p>
             </div>
           )}
+
           {activeSection === "settings" && (
             <div>
               <h1>Настройки</h1>
               <p>Добро пожаловать в банковскую платформу</p>
             </div>
           )}
+
           {activeSection === "profile" && (
             <div>
               <h1>Профиль пользователя</h1>
               <p>Данные пользователя</p>
+            </div>
+          )}
+          {activeSection === "notifications" && (
+            <div>
+              <h1>Уведомления</h1>
+              <p>Здесь будут уведомления пользователя</p>
             </div>
           )}
         </section>
@@ -104,4 +109,5 @@ function App() {
     </main>
   );
 }
+
 export default App;
