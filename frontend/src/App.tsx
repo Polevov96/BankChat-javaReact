@@ -5,31 +5,35 @@ function App() {
   const [activeSection, setActiveSection] = useState("dashboard");
 
   const menuItems = [
-  {
-    id: "profile",
-    label: "Профиль",
-  },
-  {
-    id: "dashboard",
-    label: "Дашборд",
-  },
-  {
-    id: "chats",
-    label: "Чаты",
-  },
-  {
-    id: "projects",
-    label: "Проекты",
-  },
-  {
-    id: "accounts",
-    label: "Аккаунты",
-  },
-  {
-    id: "settings",
-    label: "Настройки",
-  },
-];
+    {
+      id: "profile",
+      label: "Профиль",
+    },
+    {
+      id: "dashboard",
+      label: "Дашборд",
+    },
+    {
+      id: "chats",
+      label: "Чаты",
+    },
+    {
+      id: "projects",
+      label: "Проекты",
+    },
+    {
+      id: "accounts",
+      label: "Аккаунты",
+    },
+    {
+      id: "settings",
+      label: "Настройки",
+    },
+    {
+      id: "notifications",
+      label: "Уведомления",
+    },
+  ];
 
   return (
     <main className="app">
@@ -42,48 +46,13 @@ function App() {
               <button
                 key={item.id}
                 className={
-                  activeSection === item.id
-                    ? "menu-item active"
-                    : "menu-item"
+                  activeSection === item.id ? "menu-item active" : "menu-item"
                 }
                 onClick={() => setActiveSection(item.id)}
               >
                 {item.label}
               </button>
             ))}
-
-            <button
-              className={
-                activeSection === "projects"
-                  ? "menu-item active"
-                  : "menu-item"
-              }
-              onClick={() => setActiveSection("projects")}
-            >
-              Проекты
-            </button>
-
-            <button
-              className={
-                activeSection === "accounts"
-                  ? "menu-item active"
-                  : "menu-item"
-              }
-              onClick={() => setActiveSection("accounts")}
-            >
-              Аккаунты
-            </button>
-
-            <button
-              className={
-                activeSection === "settings"
-                  ? "menu-item active"
-                  : "menu-item"
-              }
-              onClick={() => setActiveSection("settings")}
-            >
-              Настройки
-            </button>
           </nav>
         </aside>
 
@@ -127,6 +96,12 @@ function App() {
             <div>
               <h1>Профиль пользователя</h1>
               <p>Данные пользователя</p>
+            </div>
+          )}
+          {activeSection === "notifications" && (
+            <div>
+              <h1>Уведомления</h1>
+              <p>Здесь будут уведомления пользователя</p>
             </div>
           )}
         </section>
