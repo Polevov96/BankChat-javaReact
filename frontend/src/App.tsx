@@ -1,39 +1,54 @@
 import "./App.css";
 import { useState } from "react";
 
+type MenuItem = {
+  id: string;
+  label: string;
+  description: string;
+};
+
 function App() {
   const [activeSection, setActiveSection] = useState("dashboard");
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     {
       id: "profile",
       label: "Профиль",
+      description: "Данные пользователя",
     },
     {
       id: "dashboard",
       label: "Дашборд",
+      description: "Здесь будут Дашборд пользователя",
     },
     {
       id: "chats",
       label: "Чаты",
+      description: "Здесь будут Чаты пользователя",
     },
     {
       id: "projects",
       label: "Проекты",
+      description: "Здесь будут Проекты пользователя",
     },
     {
       id: "accounts",
       label: "Аккаунты",
+      description: "Здесь будут Аккаунты пользователя",
     },
     {
       id: "settings",
       label: "Настройки",
+      description: "Здесь будут настройки пользователя",
     },
     {
       id: "notifications",
       label: "Уведомления",
+      description: "Здесь будут уведомления пользователя",
     },
   ];
+
+  const activeItem = menuItems.find((item) => item.id === activeSection);
 
   return (
     <main className="app">
@@ -57,53 +72,8 @@ function App() {
         </aside>
 
         <section className="content">
-          {activeSection === "dashboard" && (
-            <div>
-              <h1>Дашборд</h1>
-              <p>Добро пожаловать в банковскую платформу</p>
-            </div>
-          )}
-
-          {activeSection === "chats" && (
-            <div>
-              <h1>Чаты</h1>
-              <p>Добро пожаловать в банковскую платформу</p>
-            </div>
-          )}
-
-          {activeSection === "projects" && (
-            <div>
-              <h1>Проекты</h1>
-              <p>Добро пожаловать в банковскую платформу</p>
-            </div>
-          )}
-
-          {activeSection === "accounts" && (
-            <div>
-              <h1>Аккаунты</h1>
-              <p>Добро пожаловать в банковскую платформу</p>
-            </div>
-          )}
-
-          {activeSection === "settings" && (
-            <div>
-              <h1>Настройки</h1>
-              <p>Добро пожаловать в банковскую платформу</p>
-            </div>
-          )}
-
-          {activeSection === "profile" && (
-            <div>
-              <h1>Профиль пользователя</h1>
-              <p>Данные пользователя</p>
-            </div>
-          )}
-          {activeSection === "notifications" && (
-            <div>
-              <h1>Уведомления</h1>
-              <p>Здесь будут уведомления пользователя</p>
-            </div>
-          )}
+          <h1>{activeItem?.label}</h1>
+          <p>{activeItem?.description}</p>
         </section>
       </section>
     </main>
