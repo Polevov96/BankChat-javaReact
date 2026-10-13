@@ -4,13 +4,13 @@ type SidebarProps = {
   title: string;
   activeSection: string;
   menuItems: MenuItem[];
-  setActiveSection: (section: string) => void;
+  onSelectSection: (section: string) => void;
 };
 
 function Sidebar({
   activeSection,
   menuItems,
-  setActiveSection,
+  onSelectSection,
   title,
 }: SidebarProps) {
   return (
@@ -23,7 +23,7 @@ function Sidebar({
             className={
               activeSection === item.id ? "menu-item active" : "menu-item"
             }
-            onClick={() => setActiveSection(item.id)}
+            onClick={() => onSelectSection(item.id)}
           >
             {item.label}
           </button>
