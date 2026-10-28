@@ -26,7 +26,11 @@ function App() {
           {activeSection === "chats" && (
             <div>
               <p>Выбран чат: {activeChat?.title}</p>
-              <ChatList chats={chats} onSelectChat={setActiveChatId} />
+              <ChatList
+                chats={chats}
+                activeChatId={activeChatId}
+                onSelectChat={setActiveChatId}
+              />
             </div>
           )}
         </section>

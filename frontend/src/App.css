@@ -90,7 +90,29 @@
   background: rgba(255, 255, 255, 0.14);
   color: white;
 }
+.chat-item {
+  width: 100%;
+  padding: 12px 16px;
 
+  border: none;
+  border-radius: 14px;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  text-align: left;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.chat-item.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+}
 @media (max-width: 768px) {
   .glass-panel {
     flex-direction: column;
